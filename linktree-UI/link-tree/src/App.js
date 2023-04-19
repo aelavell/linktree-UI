@@ -1,10 +1,8 @@
-import React from 'react';
-import './App.css';
+import "./App.css";
+import LinksComponent from "./LinksComponent";
 
-function App(props) {
-  const { title, links } = props;
-
-  
+function App() {
+  return <LinksComponent />;
 }
 
 export default App;
