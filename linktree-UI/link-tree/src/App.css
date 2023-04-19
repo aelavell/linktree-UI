@@ -60,8 +60,80 @@
   text-decoration: underline;
 }
 
+.public-key-input-container {
+  padding-top: 15rem;
+}
+
+.input-container {
+  display: flex;
+}
+
+.public-key-input {
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: var(--koii-white);
+  font-size: 20px;
+  outline: 0;
+  width: 320px;
+  transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.public-key-input:hover {
+  border: 1px solid #9be7c4;
+}
+
+.submit {
+  width: 100px;
+  background: var(--koii-mint);
+  color: var(--koii-blue);
+  font-weight: 600;
+  font-size: 22px;
+  border: 0;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+  border: 3px solid var(--koii-mint);
+}
+
+.submit:hover {
+  border: 3px solid var(--koii-mint);
+  background: #e1efe9;
+}
+
+.error {
+  font-size: 14px;
+  color: rgb(247, 104, 104);
+  text-align: left;
+}
+
 @media screen and (max-width: 768px) {
   .links {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .public-key-input {
+    width: 240px;
+    padding: 0.7rem;
+  }
+  .public-key-input-container h1 {
+    font-size: 20px;
+  }
+  .submit {
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .public-key-input {
+    width: 200px;
+    padding: 0.7rem;
+  }
+
+  .submit {
+    width: 60px;
   }
 }
