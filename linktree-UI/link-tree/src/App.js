@@ -5,7 +5,7 @@ import LinksComponent from "./LinksComponent";
 
 const App = () => {
   const [publicKey, setPublicKey] = useState("");
-  const [links, setLinks] = useState([]);
+  const [formattedLinks, setFormattedLinks] = useState([]);
   const [error, setError] = useState(false);
   const [userDetailsFetched, setUserDetailsFetched] = useState(false);
 
@@ -15,13 +15,15 @@ const App = () => {
       const response = await axios.get(
         `https://k2-tasknet-ports-2.koii.live/task/HjWJmb2gcwwm99VhyNVJZir3ToAJTfUB4j7buWnMMUEP/linktree/get/${publicKey}`
       );
-      const linktreeData = response.data.data.linktree;
+      console.log(response.data);
+      const linktreeData = response.data.linktree;
+
       const formattedLinks = linktreeData.map((link) => ({
         name: link.label,
         url: link.redirectUrl,
       }));
-
-      setLinks(formattedLinks);
+      
+      setFormattedLinks(formattedLinks);
       setPublicKey(publicKey);
       setError(false);
       setUserDetailsFetched(true);
@@ -35,7 +37,7 @@ const App = () => {
   return (
     <>
       {userDetailsFetched ? (
-        <LinksComponent links={links} publicKey={publicKey} />
+        <LinksComponent formattedLinks={formattedLinks} publicKey={publicKey} />
       ) : (
         <div className="container public-key-input-container">
           <div>

@@ -3,36 +3,7 @@ import { truncateAddress } from "./helpers";
 import getNode from "./getNode";
 import axios from "axios";
 
-function LinksComponent({ links, publicKey }) {
-  const [formattedLinks, setFormattedLinks] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      let url = "https://k2-tasknet.koii.live";
-      let taskid = "HjWJmb2gcwwm99VhyNVJZir3ToAJTfUB4j7buWnMMUEP";
-      const selectnode = await getNode(url, taskid);
-      const pubKey = "wZfLZnDQxY94WbYv32ugtNhXhPz6eWD7ZhKECdNH659";
-      const response = await axios.get(
-        `${selectnode}/task/${taskid}/linktree/get/${pubKey}`
-      );
-      console.log(response.data);
-
-      try {
-        const linktreeData = response.data.data.linktree;
-        const formattedLinks = linktreeData.map((link) => ({
-          name: link.label,
-          url: link.redirectUrl,
-        }));
-        console.log(response);
-        setFormattedLinks(formattedLinks);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+function LinksComponent({ formattedLinks, publicKey }) {
   return (
     <div className="container">
       <p className="public-key">{truncateAddress(publicKey)}</p>
