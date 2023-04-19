@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { truncateAddress } from "./helpers";
+import getNode from "./getNode";
 
 function LinksComponent() {
   const [links, setLinks] = useState([]);
@@ -8,11 +9,17 @@ function LinksComponent() {
 
   useEffect(() => {
     const fetchData = async () => {
+      let url = "https://k2-tasknet.koii.live";
+      let taskid = "HjWJmb2gcwwm99VhyNVJZir3ToAJTfUB4j7buWnMMUEP";
+      const selectnode = await getNode(url, taskid);
+      const pubKey = "wZfLZnDQxY94WbYv32ugtNhXhPz6eWD7ZhKECdNH659";
+      const response = await axios.get(
+        `${selectnode}/task/${taskid}/linktree/get/${pubKey}`
+      );
+      console.log(response.data);
+
       try {
-        const pubKey = "wZfLZnDQxY94WbYv32ugtNhXhPz6eWD7ZhKECdNH659";
-        const response = await axios.get(
-          `https://k2-tasknet-ports-2.koii.live/task/HjWJmb2gcwwm99VhyNVJZir3ToAJTfUB4j7buWnMMUEP/linktree/get/${pubKey}`
-        );
+
         const linktreeData = response.data.data.linktree;
         const publicKey = response.data.publicKey;
         const formattedLinks = linktreeData.map((link) => ({
@@ -24,7 +31,7 @@ function LinksComponent() {
         setLinks(formattedLinks);
       } catch (error) {
         console.error("Error fetching data:", error);
-      }
+    }
     };
 
     fetchData();
