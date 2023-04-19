@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { truncateAddress } from "./helpers";
 import getNode from "./getNode";
+import axios from "axios";
 
 function LinksComponent({ links, publicKey }) {
   const [formattedLinks, setFormattedLinks] = useState([]);
