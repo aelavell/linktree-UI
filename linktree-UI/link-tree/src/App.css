@@ -4,17 +4,19 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #2a9d8f;
-
+  background: linear-gradient(to bottom right, #0d1b2a, #1a2c47);
+  background-size: 200% 200%;
 }
+  
 
 .links {
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  width: 100%;
+ 
+  
 }
 
 .link {
@@ -28,7 +30,7 @@
   background-color: #fff;
   color: #000;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -38,6 +40,30 @@
 .link:hover {
   transform: scale(1.1);
   background-color: #000;
-  color: #2a9d8f;
+  color: #2754e7;
 }
 
+.title {
+  
+  padding: 5px;
+  font-weight: bold;
+  color: white;
+  font-size: 25px;
+}
+
+
+
+.by-koii {
+  font-style: italic;
+  font-size: 0.5em;
+  vertical-align: sub;
+  text-decoration: none;
+  color: #fff;
+  background-color: #2754e7;
+
+}
+
+.by-koii:hover {
+  color: black;
+  font-size: medium;
+}

@@ -26,8 +26,10 @@ function LinksComponent() {
   }, []);
 
   return (
-    <div className="App" style={{backgroundImage: 'url(https://www.example.com/sea-ships.jpg)', backgroundSize: 'cover'}}>
-      <h1>{title}</h1>
+    <div className="App">
+      <h1 class="title">Link Tree <a href="https://www.koii.network/" class="by-koii">By Koii Network</a></h1>
+      <h1 class="title">Public key:  {title} </h1>
+      <h1 class="title">Links:</h1>
       <div className="links">
       {links.map((link, index) => (
         <div key={index}>
