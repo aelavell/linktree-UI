@@ -8,6 +8,7 @@ body {
   font-family: "Sora", sans-serif;
   overflow: hidden;
   background-color: var(--koii-blue);
+  color: var(--koii-white);
 }
 
 :root {
